@@ -1,5 +1,5 @@
 ## WILD-TRACKER.
-This is a java app that enables one to track an animal
+This is a java app that enables one to track a wild-animal and record the status at which the animal is.
 
 ## AUTHOR:
 joseph kabue wangari
