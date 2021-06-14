@@ -3,7 +3,7 @@ import org.sql2o.*;
 
 public class DataBaseRule extends ExternalResource{
     private Connection con;
-    public static Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker", "moringa", "Access");
+    public static Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker_test", "moringa", "Access");
     @Override
     public void before(){
         con=sql2o.open();

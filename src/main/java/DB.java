@@ -3,7 +3,7 @@ import java.util.List;
 public class DB{
     private Connection con;
     public DB(){
-        con=new Sql2o("jdbc:postgresql://localhost5432/wild_tracker","moringa","Access").open();
+        con=new Sql2o("jdbc:postgresql://localhost:5432/wild_tracker","moringa","Access").open();
     }
 
     public Connection getCon(){
@@ -19,11 +19,11 @@ public class DB{
         return "Complete";
     }
     public List<Animal> allData(){
-        return con.createQuery("SELECT id,name,category,health,age,status FROM animals").executeAndFetch(Animal.class);
+        return con.createQuery("SELECT * FROM animals").executeAndFetch(Animal.class);
     }
 
     public Animal getAnimal(double id){
-        return (Animal) con.createQuery("SELECT id,name,category,health,age,status FROM animals WHERE id=:id;")
+        return (Animal) con.createQuery("SELECT * FROM animals WHERE id=:id;")
                 .addParameter("id",id)
                 .executeAndFetchFirst(Animal.class);
     }
