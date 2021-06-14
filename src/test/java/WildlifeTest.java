@@ -21,8 +21,6 @@ public class WildlifeTest{
                 .executeUpdate();
         return true;
     }
-
-    //  TEST FOR INSERT IN TABLE ANIMAL IN DATABASE!!
     public boolean InsertAnimal() {
         db.getCon().createQuery("INSERT INTO animal (id,name,category,health,age,status) VALUES (:id,:name,:category,:health,:age,:status);")
                 .addParameter("id","12345")
@@ -34,8 +32,6 @@ public class WildlifeTest{
                 .executeUpdate();
         return true;
     }
-
-    //  Execution Test Commands
     @Test
     public void InsertSighting_True(){
         assertEquals(true,InsertSighting());

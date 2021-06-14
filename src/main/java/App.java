@@ -21,7 +21,7 @@ public class App{
         String layout = "templates/layout.vtl";
         get("/sightings",(request, response) -> {
 
-            model.put("sighting",db.getCon().createQuery("SELECT * FROM sighting;").executeAndFetch(Sighting.class));
+            model.put("sightings",db.getCon().createQuery("SELECT * FROM sightings;").executeAndFetch(Sighting.class));
             model.put("template","templates/sightings.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -62,12 +62,7 @@ public class App{
             response.redirect("/");
             return new ModelAndView(model,"templates/layout.vtl");
         },new VelocityTemplateEngine());
-
-
-
-//      Route to Get Details
         get("/getDetails/:id",(request,response)-> {
-//      TRY CATCH STATEMENT!!
             try{
                 model.put("animal", db.getAnimal(Double.parseDouble(request.params(":id"))));
                 model.put("sightings", db.getSighting(Double.parseDouble(request.params(":id"))));
@@ -78,11 +73,7 @@ public class App{
             }
             return new ModelAndView(model,"templates/layout.vtl");
         },new VelocityTemplateEngine());
-
-
-
-//      Route to Post Sighting!!
-        post("/addsighting", (request, response) ->{
+        post("/addsightings", (request, response) ->{
             try{
                 Sighting sighting = new Sighting(
                         1,
@@ -114,15 +105,15 @@ public class App{
         },new VelocityTemplateEngine());
 
 
-        get("/deleteSighting/:sighting",(req,res)->{
-            String SQL="DELETE FROM  sighting WHERE id="+req.params(":sighting");
+        get("/deleteSightings/:sightings",(req,res)->{
+            String SQL="DELETE FROM  sightings WHERE id="+req.params(":sightings");
             db.executeCommand(SQL);
-            res.redirect("/getSighting");
+            res.redirect("/getSightings");
             return new ModelAndView(model,"templates/layout.vtl");
         },new VelocityTemplateEngine());
 
         get("/deleteAnimal/:animal",(req,res)->{
-            String SQL="DELETE FROM  animal WHERE id="+req.params(":animal");
+            String SQL="DELETE FROM  animals WHERE id="+req.params(":animals");
             db.executeCommand(SQL);
             res.redirect("/");
             return new ModelAndView(model,"templates/layout.vtl");
