@@ -21,13 +21,13 @@ public class App{
         String layout = "templates/layout.vtl";
         get("/sightings",(request, response) -> {
 
-            model.put("sighting",db.getCon().createQuery("SELECT * FROM sighting;").executeAndFetch(Sighting.class));
+            model.put("sighting",db.getCon().createQuery("SELECT * FROM sightings;").executeAndFetch(Sighting.class));
             model.put("template","templates/sightings.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
         get("/", (request, response) -> {
-            model.put("animal",null);
+            model.put("animals",null);
             if(db.allData().size()>0){
                 model.put("animal",db.allData());
             } else {
@@ -102,17 +102,12 @@ public class App{
             return new ModelAndView(model,"templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-
-
-
-//      DELETING ROUTES!!
         get("/deleteSighting/:sighting/:animal",(request,response)->{
             String SQL="DELETE FROM  sighting WHERE id="+request.params(":sighting");
             db.executeCommand(SQL);
             response.redirect("/getDetails/"+request.params(":animal"));
             return new ModelAndView(model,"templates/layout.vtl");
         },new VelocityTemplateEngine());
-
 
         get("/deleteSighting/:sighting",(req,res)->{
             String SQL="DELETE FROM  sighting WHERE id="+req.params(":sighting");

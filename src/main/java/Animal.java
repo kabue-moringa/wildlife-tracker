@@ -16,6 +16,8 @@ public class Animal{
         this.age=age;
         this.status=status;
     }
+
+
     public double getId(){
         return this.id;
     }
@@ -37,7 +39,7 @@ public class Animal{
 
     public boolean save(){
 
-        db.getCon().createQuery("INSERT INTO animal (id,name,category,health,age,status) VALUES(:id,:name,:category,:health,:age,:status)")
+        db.getCon().createQuery("INSERT INTO animals (id,name,category,health,age,status) VALUES(:id,:name,:category,:health,:age,:status)")
                 .addParameter("id",id)
                 .addParameter("name",name)
                 .addParameter("category",category)
