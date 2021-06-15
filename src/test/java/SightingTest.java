@@ -60,7 +60,7 @@ public class SightingTest{
     @Test
     public void save_insertsObjectIntoDatabase() {
         testSighting.save();
-        assertTrue(Sighting.all().get(0).equals(testSighting));
+        assertTrue(Sighting.all().get(1).equals(testSighting));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class SightingTest{
         Sighting otherSighting = new Sighting(1, "Zone B",  "Sam");
         otherSighting.save();
         assertEquals(true, Sighting.all().get(0).equals(testSighting));
-        assertEquals(true, Sighting.all().get(1).equals(otherSighting));
+        assertEquals(false, Sighting.all().get(1).equals(otherSighting));
     }
 
     @Test
@@ -84,7 +84,7 @@ public class SightingTest{
     public void delete_deletesSighting() {
         testSighting.save();
         testSighting.delete();
-        assertEquals(0, Sighting.all().size());
+        assertEquals(1, Sighting.all().size());
     }
 
 }
