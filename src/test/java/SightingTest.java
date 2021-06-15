@@ -1,10 +1,8 @@
-import org.sql2o.*;
-import org.junit.*;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.text.DateFormat;
-import static org.junit.Assert.*;
-
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 public class SightingTest{
 
     @Rule
@@ -16,10 +14,8 @@ public class SightingTest{
     public void setUp() {
 
 
-        testSighting = new Sighting(1, "Zone A", "Ronald");
+        testSighting = new Sighting(1, "Zone A", "Abdul");
     }
-
-
 
     @Test
     public void Sighting_instantiatesCorrectly() {
@@ -47,11 +43,11 @@ public class SightingTest{
     @Test
     public void getRangerName_sightingInstantiatesWithRangerName(){
         testSighting.save();
-        assertEquals("Ronald", testSighting.getRangerName());
+        assertEquals("Abdul", testSighting.getRangerName());
     }
     @Test
     public void equals_returnsTrueIfAllPropertiesAreTheSame() {
-        Sighting anotherSighting = new Sighting(1, "Zone A", "Ronald");
+        Sighting anotherSighting = new Sighting(1, "Zone A", "Abdul");
         assertEquals(true, testSighting.equals(anotherSighting));
     }
 
@@ -71,7 +67,7 @@ public class SightingTest{
     @Test
     public void all_returnsAllInstancesOfSighting_true() {
         testSighting.save();
-        Sighting otherSighting = new Sighting(1, "Zone B",  "Baraka");
+        Sighting otherSighting = new Sighting(1, "Zone B",  "Sam");
         otherSighting.save();
         assertEquals(true, Sighting.all().get(0).equals(testSighting));
         assertEquals(true, Sighting.all().get(1).equals(otherSighting));
@@ -80,7 +76,7 @@ public class SightingTest{
     @Test
     public void find_returnsSightingWithSameId_secondSighting() {
         testSighting.save();
-        Sighting otherSighting = new Sighting(1, "Zone B",  "Daniels");
+        Sighting otherSighting = new Sighting(1, "Zone B",  "Vivian");
         otherSighting.save();
         assertEquals(Sighting.find(otherSighting.getId()), otherSighting);
     }

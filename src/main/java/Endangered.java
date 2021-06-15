@@ -1,16 +1,10 @@
-import org.sql2o.*;
-import java.util.List;
-import java.util.ArrayList;
-import java.sql.Timestamp;
-// endangered animal extends animal but with new attributes age and health
+import org.sql2o.Connection;
 
 public class Endangered extends Animal {
 
     public String health;
     public String age;
     public static final String ANIMAL_TYPE = "Endangered";
-
-    // constructor with animal attributes and new attributes for endangered animal
     public Endangered(String name, String health, String age) {
         super(name);
         if (name.equals("") || health.equals("") || age.equals("")){
@@ -20,8 +14,6 @@ public class Endangered extends Animal {
         this.age = age;
         type = ANIMAL_TYPE;
     }
-
-    //get methods for endangered animal
     public String getHealth() {
         return health;
     }
@@ -34,12 +26,9 @@ public class Endangered extends Animal {
         this.health = health;
     }
 
-    //set method for endangered animals age
     public void setAge(String age) {
         this.age = age;
     }
-
-    // overriding endangered animal
     @Override
     public boolean equals(Object otherEndangeredAnimal) {
         if (otherEndangeredAnimal instanceof Endangered) {
@@ -49,9 +38,6 @@ public class Endangered extends Animal {
 
         return false;
     }
-
-
-    //Overriding save in animal class for  endangered  class
     @Override
     public void save() {
         try(Connection con = DB.sql2o.open()) {
@@ -65,8 +51,6 @@ public class Endangered extends Animal {
                     .getKey();
         }
     }
-
-    // finding endangered animal with a static type that will apply to animal class too
     public static Endangered find(int id) {
         try(Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM animals WHERE id = :id";
@@ -76,8 +60,6 @@ public class Endangered extends Animal {
                     .executeAndFetchFirst(Endangered.class);
         }
     }
-
-    //Overriding update method from Animal class for endangered animal
     @Override
     public void update() {
         try(Connection con = DB.sql2o.open()) {

@@ -1,26 +1,20 @@
-import org.sql2o.*;
+import org.sql2o.Connection;
+
 import java.util.List;
-import java.util.ArrayList;
-import java.sql.Timestamp;
 
 public class Animal {
     public int id;
     public String name;
     public String type;
-    //creating animal with constant non endangered
     public static final String ANIMAL_TYPE = "Non-endangered";
 
     public Animal(String name){
         if (name.equals("")){
-            //throw exception if no name is entered
             throw new IllegalArgumentException("Please enter an animal name.");
         }
         this.name = name;
-
         type = ANIMAL_TYPE;
     }
-
-
     public String getName(){
         return name;
     }
@@ -37,7 +31,6 @@ public class Animal {
         this.name = name;
     }
 
-    // overriding Animal
     @Override
     public boolean equals(Object otherAnimal) {
         if (otherAnimal instanceof Animal) {
@@ -47,8 +40,6 @@ public class Animal {
 
         return false;
     }
-
-    //saving a new animal by their name and type
     public void save() {
         String sql = "INSERT INTO animals (name, type) VALUES (:name, :type)";
         try(Connection con = DB.sql2o.open()) {
@@ -61,7 +52,6 @@ public class Animal {
         }
     }
 
-    // deleting an animal and a sighting using their Id && throwing  exception incase the id is not mapped
     public void delete() {
         try(Connection con = DB.sql2o.open()) {
             String sql = "DELETE from animals WHERE id = :id";
@@ -76,8 +66,6 @@ public class Animal {
                     .executeUpdate();
         }
     }
-
-    //Listing all animals from animals table
     public static List<Animal> all() {
         String sql = "SELECT * FROM animals;";
 
@@ -88,7 +76,7 @@ public class Animal {
         }
     }
 
-    //finding an animal using its id && throwing  exception incase the id is not mapped
+
     public static Animal find(int id) {
         String sql = "SELECT * FROM animals WHERE id = :id;";
 
@@ -100,7 +88,6 @@ public class Animal {
         }
     }
 
-    //updating an animal using its Id && throwing an exception incase it is not mapped
     public void update() {
         String sql = "UPDATE animals SET name = :name WHERE id = :id";
 

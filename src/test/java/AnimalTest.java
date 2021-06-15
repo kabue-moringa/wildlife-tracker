@@ -1,8 +1,9 @@
-import org.junit.*;
-import static org.junit.Assert.*;
-import org.sql2o.*;
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class AnimalTest{
@@ -15,7 +16,7 @@ public class AnimalTest{
 
     @Before
     public void setup(){
-        testAnimal = new Animal("Monkey");
+        testAnimal = new Animal("impala");
         testEndangered =new Endangered("Zebra","Healthy","Young");
 
     }
@@ -27,7 +28,7 @@ public class AnimalTest{
 
     @Test
     public void getName_animalInstantiatesWithName_Orangutan() {
-        assertEquals("Monkey", testAnimal.getName());
+        assertEquals("impala", testAnimal.getName());
     }
 
     @Test
