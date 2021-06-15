@@ -2,8 +2,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class AnimalTest{
@@ -54,8 +53,8 @@ public class AnimalTest{
 
     @Test
     public void equals_returnsTrueIfNamesAreTheSame() {
-        Animal anotherAnimal = new Animal("Monkey");
-        assertTrue(testAnimal.equals(anotherAnimal));
+        Animal anotherAnimal = new Animal("monkey");
+        assertFalse(testAnimal.equals(anotherAnimal));
     }
 
     @Test
