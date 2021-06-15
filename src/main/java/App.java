@@ -6,7 +6,6 @@ import java.util.Map;
 
 import static spark.Spark.*;
 
-
 public class App {
 
     public static void main(String[] args) {
@@ -69,8 +68,6 @@ public class App {
             response.redirect("/animals");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
-
-        //retrieving sighting form
         get("/sightings/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("animals", Animal.all());
@@ -83,7 +80,8 @@ public class App {
             String location = request.queryParams("location");
             String ranger_name = request.queryParams("rangerName");
             try {
-                Sighting sighting = new Sighting(animal_id, location, ranger_name);
+
+                Sighting sighting = new Sighting(animal_id, location,  ranger_name);
             } catch (IllegalArgumentException exception) {
                 System.out.println("Please enter Ranger name.");
             }

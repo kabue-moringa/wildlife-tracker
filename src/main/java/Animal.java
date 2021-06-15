@@ -75,8 +75,6 @@ public class Animal {
                     .executeAndFetch(Animal.class);
         }
     }
-
-
     public static Animal find(int id) {
         String sql = "SELECT * FROM animals WHERE id = :id;";
 

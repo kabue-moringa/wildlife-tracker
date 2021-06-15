@@ -1,15 +1,12 @@
 import org.sql2o.Connection;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 public class Sighting implements DatabaseManagement {
-
     private int id;
     private int animal_id;
     private String location;
     private String ranger_name;
-    public Timestamp timestamp;
 
     public Sighting(int animal_id, String location, String ranger_name) {
         if (ranger_name.equals("")) {
@@ -18,6 +15,7 @@ public class Sighting implements DatabaseManagement {
         this.animal_id = animal_id;
         this.location = location;
         this.ranger_name = ranger_name;
+
 
         this.save();
     }
@@ -38,10 +36,8 @@ public class Sighting implements DatabaseManagement {
     }
 
     public String getTimeSeen(){
-        return String.format("%1$TD %1$TR", timestamp);
+        return String.format("%1$TD %1$TR");
     }
-
-    //set methods for Sightings
     public void setLocation(String location) {
         this.location = location;
     }
@@ -52,8 +48,8 @@ public class Sighting implements DatabaseManagement {
 
     @Override
     public void save() {
-        String sql = "INSERT INTO sightings (animal_id, location, ranger_name, timestamp) VALUES (:animal_id, :location, :ranger_name, now());";
-        System.out.println("INSERT INTO sightings (animal_id, location, ranger_name, timestamp) VALUES (:animal_id, :location, :ranger_name, now());");
+        String sql = "INSERT INTO sightings (animal_id, location, ranger_name) VALUES (:animal_id, :location, :ranger_name);";
+        System.out.println("INSERT INTO sightings (animal_id, location, ranger_name) VALUES (:animal_id, :location, :ranger_name);");
         try (Connection con = DB.sql2o.open()) {
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("animal_id", this.animal_id)
@@ -64,17 +60,17 @@ public class Sighting implements DatabaseManagement {
         }
     }
     public static List<Sighting> all() {
-        String sql = "SELECT * FROM sightings ORDER BY timestamp DESC;";
+        String sql = "SELECT * FROM sightings ;";
 
         try (Connection con = DB.sql2o.open()) {
             return con.createQuery(sql)
-                    .throwOnMappingFailure(false)
+                    .throwOnMappingFailure(true)
                     .executeAndFetch(Sighting.class);
         }
     }
     public static List<Sighting> allByAnimal(int animalId) {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "SELECT * FROM sightings WHERE animal_id = :animalId ORDER BY timestamp DESC";
+            String sql = "SELECT * FROM sightings WHERE animal_id = :animalId ORDER BY  DESC";
             return con.createQuery(sql)
                     .addParameter("animalId", animalId)
                     .executeAndFetch(Sighting.class);
@@ -115,7 +111,7 @@ public class Sighting implements DatabaseManagement {
                     .addParameter("location", location)
                     .addParameter("rangername", ranger_name)
                     .addParameter("id", id)
-                    .throwOnMappingFailure(false)
+                    .throwOnMappingFailure(true)
                     .executeUpdate();
         }
     }

@@ -13,7 +13,6 @@ public class SightingTest{
     @Before
     public void setUp() {
 
-
         testSighting = new Sighting(1, "Zone A", "Abdul");
     }
 
