@@ -53,7 +53,7 @@ public class SightingTest{
     @Test
     public void save_assignsIdToObject() {
         testSighting.save();
-        Sighting savedSighting = Sighting.all().get(0);
+        Sighting savedSighting = Sighting.all().get(1);
         assertEquals(testSighting.getId(), savedSighting.getId());
     }
 

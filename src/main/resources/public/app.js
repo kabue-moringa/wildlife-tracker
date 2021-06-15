@@ -1,9 +1,8 @@
 $(document).ready(function(){
-// Animations init
 new WOW().init();
 
 var typed=new Typed(`#type`,{
-     strings:[" Wildlife Tracker "," An application that allows Rangers to track wildlife sightings in the area. "],
+     strings:[" WILDLIFE-TRACKER "," It's an application that allows Wildlife-rangers to track wildlife sightings in the area. "],
      backSpeed:70,
      typeSpeed:80,
      smartBackspace:true,
@@ -11,8 +10,8 @@ var typed=new Typed(`#type`,{
    })
    var typed =new Typed(`#msg`,{
         strings:[" Your Animal has been saved ! "],
-        backSpeed:70,
-        typeSpeed:80,
+        backSpeed:80,
+        typeSpeed:90,
         smartBackspace:true,
       })
 })
@@ -36,15 +35,6 @@ function thirdClick(){
 timer:4000
 Swal.fire(
   'Add Sighting?',
-
 )
 }
-
-
-
-
-
-
-
-// Animations init
 new WOW().init();

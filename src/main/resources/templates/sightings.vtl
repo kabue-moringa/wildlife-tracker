@@ -40,8 +40,7 @@
                         <h3>All Sightings:</h3>
                         #foreach($sighting in $sightings)
                           <h3><a href="/animals/$sighting.getAnimalId()">$Animal.find($sighting.getAnimalId()).getName()</a></h3>
-                          <p><em>$sighting.getTimeSeen()</em></p>
-                          <p>
+
                             Location: $sighting.getLocation(), Ranger: $sighting.getRangerName()
                             <a href="/sightings/$sighting.getId()/edit" class="edit"> [edit]</a>
                             <a href="/sightings/$sighting.getId()/delete" class="delete"> [delete]</a>
