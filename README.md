@@ -24,7 +24,7 @@ Initialize postgresql Database using this command:
 CREATE DATABASE wildlife_tracker;
 #### Connect to DataBase]
  \c wildlife_tracker
-####Creating  Tables
+##Creating  Tables
 CREATE TABLE animals (id int PRIMARY KEY,name varchar,health varchar, status varchar);
 
 CREATE TABLE sightings (id int PRIMARY KEY,location varchar, ranger_name varchar);
