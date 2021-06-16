@@ -1,1 +1,3 @@
-web: ./build/install/wildtrack-animals/bin/wildtrack-animals
+web: ./build/install/ animaltracker-apps
+/bin/ animaltracker-apps
+

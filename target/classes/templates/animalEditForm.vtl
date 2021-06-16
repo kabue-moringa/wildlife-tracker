@@ -16,11 +16,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/sightings">Sightings</a>
                 </li>
-                <li class="nav-item">
-                    <a href="https://github.com/peter-wachira/"  onclick="btnClick()" class="nav-link border border-light rounded" target="_blank">
-                        <i class="fab fa-github mr-2"></i>GitHub
-                    </a>
-                </li>
             </ul>
         </div>
     </div>
@@ -60,9 +55,9 @@
                                     <option value="Okay">Okay</option>
                                   #end
                                   #if ($endangered.getHealth().equals("Ill"))
-                                    <option value="Ill" selected>Ill</option>
+                                    <option value="ill" selected>Ill</option>
                                   #else
-                                    <option value="Ill">Ill</option>
+                                    <option value="ill">Ill</option>
                                   #end
                                 </select>
                               </div>

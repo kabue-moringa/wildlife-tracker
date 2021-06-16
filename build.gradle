@@ -1,13 +1,10 @@
-plugins {
-    id 'java'
-    id 'application'
-}
+apply plugin: 'java'
+apply plugin: 'application'
 
-group 'wild-tracker'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
-mainClassName = 'App'
+archivesBaseName = "wild tracker"
+version = '1.0'
+applicationName = " animaltracker-apps"
+mainClassName = "App"
 
 repositories {
     mavenCentral()

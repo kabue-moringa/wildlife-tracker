@@ -5,9 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany.app</groupId>
-    <artifactId> wildtrack-animals
-
-
+    <artifactId>animaltracker-apps
     </artifactId>
     <version>1.0</version>
 
@@ -74,11 +72,9 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Change this to YOUR application name! -->
-                    <appName>wildtrack-animals
-                    </appName>
+                    <appName>animaltracker-apps</appName>
                     <processTypes>
-                        <web>java -jar target/wildtrack-animals-1.0-jar-with-dependencies.jar</web>
-
+                        <web>java -jar target/animaltracker-apps-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
