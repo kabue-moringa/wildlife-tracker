@@ -5,7 +5,7 @@ header,
   height: 100%;
 }
 .top-nav-collapse {
-  background-color: #78909c !important;
+  background-color: green !important;
 }
 .navbar:not(.top-nav-collapse) {
   background: transparent !important;
