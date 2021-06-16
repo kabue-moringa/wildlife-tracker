@@ -13,12 +13,12 @@ Ensure you have installed postgresql on your localmachine
 
 This will be used as the System 
 
-* NOTE!
 
-The $ and =# are only used to indicate the current location!
 
-####Initialize postgresql Database using the below commands:
-$  [psql]
+.The $ and =# are only used to indicate the current location!
+
+Initialize postgresql Database using this command:
+* $  psql
 
 ## Create DataBase:
 CREATE DATABASE wildlife_tracker;
