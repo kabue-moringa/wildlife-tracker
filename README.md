@@ -20,14 +20,14 @@ The $ and =# are only used to indicate the current location!
 Initialize postgresql Database using the below commands:
 $  [psql]
 
-[Create DataBase:]
-=# CREATE DATABASE wildlife_tracker;
-[Connect to DataBase]
-=# \c wildlife_tracker
-[Create Animal Table]
-CREATE TABLE animal (id int PRIMARY KEY,name VARCHAR VARCHAR,health VARCHAR, age VARCHAR, status VARCHAR);
+## Create DataBase:
+CREATE DATABASE wildlife_tracker;
+#### Connect to DataBase]
+ \c wildlife_tracker
+####Creating  Tables
+CREATE TABLE animals (id int PRIMARY KEY,name varchar,health varchar, status varchar);
 
-
+CREATE TABLE sightings (id int PRIMARY KEY,location varchar, ranger_name varchar);
 
 ### TECHNOLOGIES USED:
 
