@@ -34,10 +34,6 @@ public class Sighting implements DatabaseManagement {
     public String getRangerName(){
         return ranger_name;
     }
-
-//    public String getTimeSeen(){
-//        return String.format("%1$TD %1$TR");
-//    }
     public void setLocation(String location) {
         this.location = location;
     }

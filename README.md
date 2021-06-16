@@ -22,7 +22,7 @@ Initialize postgresql Database using this command:
 
 ## Create DataBase:
 CREATE DATABASE wildlife_tracker;
-#### Connect to DataBase]
+## Connect to DataBase]
  * \c wildlife_tracker
  
 ## Creating  Tables
