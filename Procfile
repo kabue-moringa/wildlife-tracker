@@ -1,3 +1,5 @@
-web: ./build/install/ animaltracker-apps
-/bin/ animaltracker-apps
+web: ./build/install/trackeranimaltracker
+/bin/trackeranimaltracker
+
+
 
