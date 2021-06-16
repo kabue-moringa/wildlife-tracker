@@ -1,5 +1,5 @@
-## WILD-TRACKER.
-This is a java app that enables one to track a wild-animal and record the status at which the animal is.
+## WILDLIFE-TRACKER.
+This is an app that enables rangers to track a wild-animal and record status at which the animal is.
 
 ## AUTHOR:
 joseph kabue wangari
@@ -25,7 +25,7 @@ CREATE DATABASE wildlife_tracker;
 #### Connect to DataBase]
  * \c wildlife_tracker
  
-##Creating  Tables
+## Creating  Tables
 
 CREATE TABLE animals (id int PRIMARY KEY,name varchar,health varchar, status varchar);
 
